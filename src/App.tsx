@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="app">
+      {/* Header Section */}
+      <header className="header">
+        <h1 className="header-title">Your Name</h1>
+        <nav className="nav">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
 
-export default App
+      {/* About Section */}
+      <section id="about" className="about">
+        <h2>About Me</h2>
+        <p>
+          Hi! I'm [Your Name], a [Your Profession or Role]. I specialize in [Your Skills/Expertise].
+          Welcome to my personal website!
+        </p>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="projects">
+        <h2>Projects</h2>
+        <div className="project-list">
+          <div className="project-card">
+            <h3>Project 1</h3>
+            <p>A brief description of your project.</p>
+          </div>
+          <div className="project-card">
+            <h3>Project 2</h3>
+            <p>A brief description of your project.</p>
+          </div>
+          {/* Add more project cards as needed */}
+        </div>
+      </section>
+
+      {/* Footer Section */}
+      <footer id="contact" className="footer">
+        <p>Contact me at: your.email@example.com</p>
+        <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+};
+
+export default App;

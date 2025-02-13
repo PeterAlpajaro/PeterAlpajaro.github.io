@@ -1,42 +1,92 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* General Reset */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header */
+.header {
+  background-color: #282c34;
+  color: white;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+}
+
+.header-title {
+  margin: 0;
+}
+
+.nav {
+  margin-top: 0.5rem;
+}
+
+.nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+/* About Section */
+.about {
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.about h2 {
+  font-size: 2rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about p {
+  font-size: 1.2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Projects Section */
+.projects {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  width: 100%;
 }
 
-.card {
-  padding: 2em;
+.projects h2 {
+  text-align: center;
 }
 
-.read-the-docs {
-  color: #888;
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: rgba(0,0,0,0.1) 0px 4px 6px -1px, rgba(0,0,0,0.06) 0px 2px 4px -1px;
+  margin: 1rem;
+  padding: 1rem;
+  width: calc(100% / 3 - 2rem);
+}
+
+.project-card h3 {
+  margin-top: 0;
+}
+
+/* Footer */
+.footer {
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 1rem;
 }
