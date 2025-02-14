@@ -1,18 +1,34 @@
-/* General Reset */
-body, html, #root {
+/* General */
+html, body, #root {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  color: #333;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; /* Inherit box-sizing from the body */
 }
 
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 auto; /* Center the content */
 }
 
-/* Header */
+/* HEADER MAJOR SECTION --------------------------------------- */
 .header {
   background-color: #282c34;
   color: white;
@@ -38,6 +54,21 @@ body, html, #root {
 .nav a:hover {
   text-decoration: underline;
 }
+
+/* Home.tsx MAJOR SECTION -------------------------------- */ 
+
+.headshot-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.headshot {
+  width: 10vw; /* Adjust size as needed */
+  height: 10vw;
+  border-radius: 50%; /* Makes it circular */
+  border: 3px solid #333; /* Optional border */
+}
+
 
 /* About Section */
 .about {
@@ -75,12 +106,88 @@ body, html, #root {
   border-radius: 8px;
   box-shadow: rgba(0,0,0,0.1) 0px 4px 6px -1px, rgba(0,0,0,0.06) 0px 2px 4px -1px;
   margin: 1rem;
-  padding: 1rem;
-  width: calc(100% / 3 - 2rem);
+  padding: 0rem;
+  width: calc(100% / 3 - 2rem); /* Adjusted to fit 3 cards per row */
+  aspect-ratio: 1 / 1.2;;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Ensure content stays within the bubble */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add transition for animation */
 }
 
-.project-card h3 {
-  margin-top: 0;
+.project-card:hover {
+  transform: translateY(-10px); /* Move the card up on hover */
+  box-shadow: rgba(0,0,0,0.2) 0px 8px 12px -2px, rgba(0,0,0,0.1) 0px 4px 6px -2px; /* Enhance shadow on hover */
+}
+.project-card h3, .project-card p {
+  margin: 0.5rem; /* Add some margin for spacing */
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+  flex-shrink: 0; /* Prevent the text from shrinking */
+  text-align: center; /* Center the text */
+  font-style: normal;
+  color: black;
+}
+
+.project-image {
+  width: 100%;
+  height: 75%; /* Set a fixed height for the image */
+  object-fit: cover; /* Ensure the image scales and crops to fit within the height */
+  flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+/* PROJECT INDIVIDUAL MAJOR SECTION ----------------------------------------------- */
+.project-page {
+  width: 100%;
+}
+
+
+.image-container {
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+  margin: 0 auto;
+}
+
+.project-image-inner {
+  width: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+
+}
+
+.overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  color: white;
+  padding: 2rem;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+}
+
+.project-description {
+  margin: 0.5rem; /* Add some margin for spacing */
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Asdd ellipsis for overflow text */
+  flex-grow: 1; /* Allow the description to take up available space */
+}
+
+.link {
+  color: antiquewhite
+
 }
 
 /* Footer */
@@ -89,4 +196,5 @@ body, html, #root {
   color: white;
   text-align: center;
   padding: 1rem;
+  width: 100%;
 }

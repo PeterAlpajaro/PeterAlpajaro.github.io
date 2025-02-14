@@ -1,50 +1,49 @@
+// IMPORTS --------------------------------------------------------------------
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import './App.css';
 
+// PAGES --------------------------------------------------------------------
+import Home from '../pages/Home';
+import HapticGlove from '../pages/HapticGlove.tsx';
+import VitalE from '../pages/VitalE.tsx';
+import CampusManhunt from '../pages/CampusManhunt.tsx';
+import MyDiet from '../pages/MyDiet.tsx';
+
+
+// APP ENTRY POINT -----------------------------------------------------------
 const App: React.FC = () => {
   return (
-    <div className="app">
-      {/* Header Section */}
-      <header className="header">
-        <h1 className="header-title">Your Name</h1>
-        <nav className="nav">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
+    <Router>
+      <div className="app">
+        {/* Header Section */}
+        <header className="header">
+          <h1 className="header-title">Peter Alpajaro</h1>
+          <nav className="nav">
+            <Link to="/">Home</Link>
+            <Link to="/#about">About</Link>
+            <Link to="/#projects">Projects</Link>
+            <Link to="/#contact">Contact</Link>
+          </nav>
+        </header>
 
-      {/* About Section */}
-      <section id="about" className="about">
-        <h2>About Me</h2>
-        <p>
-          Hi! I'm [Your Name], a [Your Profession or Role]. I specialize in [Your Skills/Expertise].
-          Welcome to my personal website!
-        </p>
-      </section>
+        {/* Define Routes */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/project1" element={<HapticGlove />} />
+          <Route path="/project2" element={<VitalE />} />
+          <Route path="/project3" element={<MyDiet />} />
+          <Route path="/project4" element={<CampusManhunt />} />
 
-      {/* Projects Section */}
-      <section id="projects" className="projects">
-        <h2>Projects</h2>
-        <div className="project-list">
-          <div className="project-card">
-            <h3>Project 1</h3>
-            <p>A brief description of your project.</p>
-          </div>
-          <div className="project-card">
-            <h3>Project 2</h3>
-            <p>A brief description of your project.</p>
-          </div>
-          {/* Add more project cards as needed */}
-        </div>
-      </section>
+        </Routes>
 
-      {/* Footer Section */}
-      <footer id="contact" className="footer">
-        <p>Contact me at: your.email@example.com</p>
-        <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
-      </footer>
-    </div>
+        {/* Footer Section */}
+        <footer id="contact" className="footer">
+          <p>Contact me at: palpajar@uwaterloo.ca</p>
+          <p>&copy; {new Date().getFullYear()} Peter Alpajaro. All rights reserved.</p>
+        </footer>
+      </div>
+    </Router>
   );
 };
 
